@@ -1,4 +1,4 @@
-ped_info = generatePedInfo(); % Func generatePedInfo()
+ped_info = generatePedInfo_rv(); % Func generatePedInfo()
 plot(ped_info(11,1:10),ped_info(12,1:10),'k.','MarkerSize',5);
 hold on
 plot(ped_info(11,11:20),ped_info(12,11:20),'m.','MarkerSize',5);
@@ -24,12 +24,20 @@ title 'Pedestrians';
 xlabel 'road x (m)';
 ylabel 'road y (m)';
 
-
 %kmeans start
-[idx,C] = kmeans(transpose(ped_info),10);
+[idx1,C1] = kmeans(transpose(ped_info),10);
+[idx2,C2] = kmedoids(transpose(ped_info),10);
 % idx is a vector of predicted cluster indices corrresponding to the observations in ped_info.
 % C is a 10-by-params matrix containing the final centroid locations.
-C = transpose(C);
-plot(C(11,:),C(12,:),'kx',...
-     'MarkerSize',15,'LineWidth',3);
+C1 = transpose(C1);
+C2 = transpose(C2);
+% plot(C1(11,:),C1(12,:),'kx',...
+%      'MarkerSize',15,'LineWidth',3);
+% hold on;
+% plot(C2(11,:),C2(12,:),'rx',...
+%      'MarkerSize',15,'LineWidth',3);
+
+ped_info = transpose(ped_info);
+
+
 hold off

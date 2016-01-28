@@ -17,7 +17,7 @@ end
 ped_dz = [0,0,0,0,0,0,0,0,0,0];
 
 for i=1:100
-    errorSize = 0.06; % if error = 0.1, random error will be 0.05
+    errorSize = 0.1; % if error = 0.1, random error will be 0.05
     random_error1 = (rand(1,1)-0.5) * errorSize; % random error
     random_error2 = (rand(1,1)-0.5) * errorSize; % random error
     random_error3 = (rand(1,1)-0.5) * errorSize; % random error
